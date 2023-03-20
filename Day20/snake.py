@@ -41,6 +41,14 @@ class Snake:
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
 
+    def reset(self):
+        for _ in self.segments_snake:
+            _.goto(1000,1000)
+            _.color('black')
+        self.segments_snake.clear()
+        self.create_snake()
+        self.head = self.segments_snake[0]
+
     def add_new_element_to_snake(self):
         snake = Turtle('square')
         snake.color('white')

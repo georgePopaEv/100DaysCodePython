@@ -19,6 +19,8 @@ screen.onkey(snake.move_up, "Up")
 screen.onkey(snake.move_down, "Down")
 screen.onkey(snake.move_right, "Right")
 screen.onkey(snake.move_left, "Left")
+# screen.onkey(scre_board.game_over, "Q")
+
 screen.listen()
 
 
@@ -33,10 +35,10 @@ while game_is_on:
         snake.add_new_element_to_snake()
         fod.refresh()
     if snake.head.xcor() > 340 or snake.head.xcor() < -340 or snake.head.ycor() > 340 or snake.head.ycor() < -340:
-        scre_board.game_over()
-        game_is_on = False
+        scre_board.reset()
+        snake.reset()
     if snake.colide_with_tail():
-        scre_board.game_over()
+        scre_board.reset()
         game_is_on = False
 
 
